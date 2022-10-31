@@ -6,19 +6,27 @@ let y = 2;*/
 
 /*T1
 let res1 =  x.toString() + y;
+//or
+//let res1 = "" + x + y;
 console.log(res1); // "12"
 console.log(typeof res1); // "string"*/
 
 
 /*T2
 let bln = !!x;
-let res2 = bln.toString() + y;;
+let res2 = bln.toString() + y;
+    //or
+    // let res2 = Boolean(x) + "" + y;
+    //or
+    // let res2 = String(Boolean(x)) + y;
     console.log(res2); // "true2"
 console.log(typeof res2); // "string"*/
 
 
 /*T3
 let res3 = !!x && !!y;
+    //or Використовуємо лише 1 змінну, а другу не беремо. Виявилось, не обов'язково юзати 2 змінні водночас
+    //let res3 = Boolean(x);
     console.log(res3); // true
 console.log(typeof res3); // "boolean"*/
 
@@ -26,6 +34,8 @@ console.log(typeof res3); // "boolean"*/
 /*T4
 let newValue = !!x + y.toString();
 let res4 =  parseFloat(newValue);
+    //or
+    let res3 = parseFloat(Boolean(x));
     console.log(res4); // NaN
 console.log(typeof res4); // "number"*/
 
@@ -74,6 +84,11 @@ console.log(arr);*/
 /*let cities = ["Rome", "Lviv", "Warsaw"];
 let newString = cities.join('*');
 console.log(newString);*/
+//or
+/*let result = cities.reduce(function (sum,i) {
+ return [sum + "*" + i];
+    })
+console.log(result);*/
 
 /*5. Використовуючи функцію prompt() задайте користувачу питання про досягнення ним повнолітнього віку. Результат
 запишіть в змінну isAdult. В залежності від отриманого значення виведіть відповідне повідомлення про статус особи.
