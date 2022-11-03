@@ -31,8 +31,10 @@ for (let i = 0; i <= 15; i++) {
         console.log(`${i} is even`);
     } else {
         console.log(`${i} is odd`);
+//or
+//         result = (i % 2 === 0) ? `${i} is even` : `${i} is odd`;
     }
-}*/
+*/
 
 
 /*3. Напишіть функцію randArray(k), яка заповнюватиме масив k випадковими цілими числами. Випадкові числа генеруються
@@ -40,8 +42,7 @@ for (let i = 0; i <= 15; i++) {
 Sample Output:
     randArray(5);  // [399,310,232,379,40]*/
 
-/*
-function randArray(k) {
+/*function randArray(k) {
     let arr = [];
 
     for (i = 0; i < k; i++) {
@@ -84,7 +85,6 @@ function raiseToDegree(a, b) {
 
 
 // raiseToDegree(3,4);
-//or
 raiseToDegree();*/
 
 
@@ -165,8 +165,8 @@ lastElem([3, 4, 10, -5], 'i');*/
 /*8. Напишіть функцію, яка приймає рядок як параметр і перетворює першу букву кожного слова рядка в верхній регістр.
     Input string: 'i love java script'
 Output string: 'I Love Java Script'*/
-/*
 
+/*
 function upperCase(str) {
     if (str && isNaN(str)) {
         let result = str.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' ');

@@ -83,9 +83,9 @@ console.log(arr);*/
     "Rome*Lviv*Warsaw"*/
 /*let cities = ["Rome", "Lviv", "Warsaw"];
 let newString = cities.join('*');
-console.log(newString);*/
+console.log(newString);
 //or
-/*let result = cities.reduce(function (sum,i) {
+let result = cities.reduce(function (sum,i) {
  return [sum + "*" + i];
     })
 console.log(result);*/
