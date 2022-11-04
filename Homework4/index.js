@@ -1,9 +1,9 @@
-// ???????????????????????/
 /*1. Реалізуйте функцію calcRectangleArea(width, height), яка приймає 2 параметри ширина прямокутника width і
 висота прямокутника height і обраховує його площу. Передбачити припинення виконання програми і генерацію винятку у
  випадку, якщо функції передано не числові параметри.
     Напишіть код, який використовує цю функцію та обробляє можливі виняткові ситуації.*/
-/*function calcRectangleArea(width, height) {
+/*
+function calcRectangleArea(width, height) {
     if(typeof width === 'string' || typeof height === 'string') {
         throw new Error('Parametr is string. Please enter the number.');
     }
@@ -21,11 +21,11 @@ try {
     console.log(exception.name);
     console.log(exception.message);
     console.log(exception.stack);
-}*/
+}
+*/
 
 
-/*
-2. Напишіть функцію checkAge(), яка пропонуватиме юзеру ввести свій вік і генерувати в модальному вікні помилки у
+/*2. Напишіть функцію checkAge(), яка пропонуватиме юзеру ввести свій вік і генерувати в модальному вікні помилки у
 випадку, коли:
 - юзер ввів порожню стрічку (наприклад “The field is empty! Please enter your age”),
 - нечислове значення
@@ -95,7 +95,7 @@ try {
     alert(" Invalid data: " + exception.message);
 }*/
 
-/*4.
+/*4????????????????????
 1)Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт, який містить значення
  переданої id. Також функція викидає помилку у разі якщо введено від’ємне id.
 2) Реалізуйте функцію showUsers(ids), яка приймає параметром масив користувацьких айді ids, перевіряє з використанням
@@ -106,10 +106,12 @@ try {
 Error: ID must not be negative: -12
     [ {id: 7}, {id: 44}, {id: 22} ]*/
 
+
+//Не розумію, як після помилки продовжити виконання коду та видати лише відсіяні правильні дані.
 /*
 function showUser(id) {
     if(id < 0) {
-        throw new Error('Number must be positive.')
+        throw new Error(`ID must not be negative: ${id}`);
     }
 
     let user = new Object();
@@ -119,23 +121,23 @@ function showUser(id) {
 }
 
 try {
-    let userObj = showUser(4);
-    console.log(userObj);
+  showUser();
 } catch (exception) {
-    alert(" Invalid data: " + exception.message);
+    console.log(exception.name + exception.message);
 }
 
-function showUsers(arr) {
-    let arr = [];
-    let result = arr.map(showUser(id));
+function showUsers(ids) {
 
-    return result;
+    let result = ids.map(showUser);
+
+    console.log(result);
 }
+
 
 try {
-    let usersArr = showUsers([1,2,3]);
-    console.log(usersArr);
+    showUsers([7, -12, 44, 22]);
 } catch (exception) {
-    alert(" Invalid data: " + exception.message);
+    console.log(exception.name + ": " + exception.message);
 }
 */
+
