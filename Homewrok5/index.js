@@ -121,7 +121,8 @@ class Worker {
 
     _experience = 1.2;
     showSalaryWithExperience() {
-        console.log("Salary with experience: " + (this.dayRate * this.workingDays * this._experience));
+        let result = this.dayRate * this.workingDays * this._experience;
+        console.log("Salary with experience: " + result);
     }
 
    set setExp(value) {
@@ -169,6 +170,25 @@ worker4.setExp = 1.5;
 // console.log("New experience: " + worker4.showExp);
 // worker4.showSalaryWithExperience();
 
+let workers = [worker1, worker2, worker3, worker4];
+function sortWorkersBySalary(workers) {
+    workers.sort(function(a,b){
+        return a.showSalaryWithExperience() - b.showSalaryWithExperience();
+    });
+    return workers
+}
+
+function showWorkersList(workers) {
+    console.log('Sorted salary: ');
+    for (let i = 0; i < workers.length; i++) {
+        console.log(workers[i].fullName + ': '+ workers[i].showSalaryWithExperience())
+    }
+}
+showWorkersList(workers);
+/*let sortedWorkers = workers.sort(function (a,b) {
+return a.showSalaryWithExperience() - b.showSalaryWithExperience();
+});
+console.log(sortedWorkers);*/
 /*
 Output example:
     John Johnson

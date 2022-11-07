@@ -52,6 +52,26 @@ alert('Confirmed successfully. Enjoy the film!')
          alert(err.name + " Invalid data: " + err.message);
  }*/
 
+//або варіант викладача
+/*function checkAge() {
+    try {
+        const age = prompt("The movie has restrictions. Please enter your age.")
+        if (age === "") {
+            throw new Error("The field is empty.")
+        } else if (isNaN(parseInt(age))) {
+            throw new Error("Please enter number.")
+        } else if (age < 14) {
+            throw new Error("Sorry, but you are too young.")
+        }
+        alert("Enjoy the movie!");
+    }
+
+    catch (e) {
+        alert(e.name + " " + e.message);
+    }
+}
+checkAge();*/
+
 /*3. Створіть клас MonthException, конструктор якого приймає параметр message і ініціалізує поле name значенням
 'MonthException'.
     Реалізуйте функцію showMonthName(month), в якій параметр month – це порядковий номер місяця в році. Функція
@@ -62,15 +82,15 @@ alert('Confirmed successfully. Enjoy the film!')
     > console.log(showMonthName(5));// May
 > console.log(showMonthName(14));// MonthException Incorrect month number*/
 
-/*class MonthException extends Error {
+/*
+class MonthException {
     constructor(message) {
-        super(message);
+        this.message = message;
         this.name = 'MonthException';
     }
 }
 
 function showMonthName(month) {
-
 
     if (month === '') {
         throw new MonthException('The field is empty! Please enter some number.');
@@ -90,10 +110,11 @@ function showMonthName(month) {
 
 try {
     let monthName = showMonthName("kl");
-    console.log(monthName);
+    alert(monthName);
 } catch (exception) {
     alert(" Invalid data: " + exception.message);
-}*/
+}
+*/
 
 /*4????????????????????
 1)Реалізуйте функцію showUser(id), яка приймає параметром користувацьке id і повертає об’єкт, який містить значення
@@ -107,7 +128,7 @@ Error: ID must not be negative: -12
     [ {id: 7}, {id: 44}, {id: 22} ]*/
 
 
-//Не розумію, як після помилки продовжити виконання коду та видати лише відсіяні правильні дані.
+//!!!!!!!!!!!!!!!!!!!!!!Не розумію, як після помилки продовжити виконання коду та видати ще і відсіяні правильні дані.Допоможи пліз.
 /*
 function showUser(id) {
     if(id < 0) {
@@ -116,8 +137,9 @@ function showUser(id) {
 
     let user = new Object();
     user.id = id;
-
     return user;
+//    або отак:
+//    return {id};
 }
 
 try {
@@ -139,5 +161,5 @@ try {
 } catch (exception) {
     console.log(exception.name + ": " + exception.message);
 }
-*/
 
+*/
