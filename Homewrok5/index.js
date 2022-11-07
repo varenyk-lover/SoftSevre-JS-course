@@ -55,14 +55,14 @@ showProps(shop);
 console.log(stud1.showFullName("Petrovych")); // Petrenko Petro Petrovych
 console.log("Current course:"+stud1.showCourse()); //Current course: 6*/
 
-class Person {
+/*class Person {
     constructor(firstName, lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
     showFullName() {
-        alert(this.name + '' + this.name)
+        alert(this.firstName + ' ' + this.lastName);
     }
 }
 
@@ -72,8 +72,30 @@ class Student extends Person {
         this.year = year;
     }
 
-}
+    showFullName(midleName) {
+        this.midleName = midleName;
+        alert(this.firstName + ' ' + this.lastName + ' ' + this.midleName);
+    }
 
+    showCourse() {
+        let currentYear = 2022;
+        let course = currentYear - this.year;
+
+        if (course < 7) {
+            return course;
+        } else if (course > 6) {
+            alert("The person has already graduated.");
+        } else {
+            throw new Error("Year is not correct");
+        }
+    }
+}*/
+
+// const person1 = new Person("Lola","Vilka");
+// console.log(person1.showFullName());
+// const stud1 = new Student("Petro", "Petrenko", 2015);
+// console.log(stud1.showFullName("Petrovych")); // Petrenko Petro Petrovych
+// alert("Current course: " + stud1.showCourse()); //Current course: */
 
 /*4. Створіть клас Worker який буде мати конструктор, який приймає наступні властивості: fullName (ім’я і прізвище),
 dayRate (ставка за день роботи), workingDays (кількість відпрацьованих днів).
@@ -85,24 +107,69 @@ dayRate (ставка за день роботи), workingDays (кількіст
 4) Вивести значення зарплати з новим experience.
 5) Створити кілька екземплярів класу (працівників) з різними зарплатами, як показано в прикладі нижче. Посортувати
 зарплату працівників із найбільшим experience по зростанню і вивести результат в форматі:   worker_fullName: salary_value
-6) Реалізувати динамічне сортування для будь-кої кількості працівників-екземплярів класу Worker.
+6) Реалізувати динамічне сортування для будь-кої кількості працівників-екземплярів класу Worker.*/
+class Worker {
+    constructor(fullName, dayRate, workingDays) {
+        this.fullName = fullName;
+        this.dayRate = dayRate;
+        this.workingDays = workingDays;
+    }
 
-    Example usage:
+    showSalary() {
+        console.log("Salary: " + (this.dayRate * this.workingDays))
+    }
+
+    _experience = 1.2;
+    showSalaryWithExperience() {
+        console.log("Salary with experience: " + (this.dayRate * this.workingDays * this._experience));
+    }
+
+   set setExp(value) {
+        if (value < 0) value = 0;
+        this._experience = value;
+    }
+
+    get showExp() {
+        return this._experience;
+    }
+}
+    // Example usage:
     let worker1 = new Worker("John Johnson", 20, 23);
-console.log(worker1.fullName);
-worker1.showSalary();
-console.log("New experience: " + worker1.showExp);
-worker1.showSalaryWithExperience();
+// console.log(worker1.fullName);
+// worker1.showSalary();
+// console.log("New experience: " + worker1.showExp);
+// worker1.showSalaryWithExperience();
 worker1.setExp = 1.5;
-console.log("New experience: " + worker1.showExp);
-worker1.showSalaryWithExperience();
+// console.log("New experience: " + worker1.showExp);
+// worker1.showSalaryWithExperience();
 
 let worker2 = new Worker("Tom Tomson", 48, 22);
-. . . . . .
-
+// console.log(worker2.fullName);
+// worker2.showSalary();
+// console.log("New experience: " + worker2.showExp);
+// worker2.showSalaryWithExperience();
+worker2.setExp = 1.5;
+// console.log("New experience: " + worker2.showExp);
+// worker2.showSalaryWithExperience();
 let worker3 = new Worker("Andy Ander", 29, 23);
-. . . . . .
+// console.log(worker3.fullName);
+// worker3.showSalary();
+// console.log("New experience: " + worker3.showExp);
+// worker3.showSalaryWithExperience();
+worker3.setExp = 1.5;
+// console.log("New experience: " + worker3.showExp);
+// worker3.showSalaryWithExperience();
+let worker4 = new Worker("Hally Hansen",45
+,50);
+// console.log(worker4.fullName);
+// worker4.showSalary();
+// console.log("New experience: " + worker4.showExp);
+// worker4.showSalaryWithExperience();
+worker4.setExp = 1.5;
+// console.log("New experience: " + worker4.showExp);
+// worker4.showSalaryWithExperience();
 
+/*
 Output example:
     John Johnson
 John Johnson salary: 460
@@ -126,7 +193,8 @@ Andy Ander  salary: 1000.5
 Sorted salary:
     John Johnson: 690
 Andy Ander: 1000.5
-Tom Tomson: 1584*/
+Tom Tomson: 1584
+*/
 
 
 /*5. Створіть батьківський клас GeometricFigure, який має порожній метод для визначення площі getArea() та метод
