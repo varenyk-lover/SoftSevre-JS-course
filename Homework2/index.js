@@ -167,10 +167,10 @@ if (squareOfHypotenuse === 0 || isNaN(squareOfHypotenuse)) {
 /*let currentDate = new Date();
 console.log(currentDate);
 let currentTime = currentDate.getHours();
-console.log(currentTime);*/
+console.log(currentTime);
 
 //1 vesrion
-/*if (currentTime >= 23 && currentTime < 5) {
+if (currentTime >= 23 && currentTime < 5) {
     console.log('Доброї ночі');
 } else if (currentTime >= 5 && currentTime < 11) {
     console.log('Доброго ранку');

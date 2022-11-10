@@ -128,8 +128,7 @@ Error: ID must not be negative: -12
     [ {id: 7}, {id: 44}, {id: 22} ]*/
 
 
-//!!!!!!!!!!!!!!!!!!!!!!Не розумію, як після помилки продовжити виконання коду та видати ще і відсіяні правильні дані.Допоможи пліз.
-/*
+
 function showUser(id) {
     if(id < 0) {
         throw new Error(`ID must not be negative: ${id}`);
@@ -142,24 +141,50 @@ function showUser(id) {
 //    return {id};
 }
 
+
 try {
   showUser();
 } catch (exception) {
     console.log(exception.name + exception.message);
 }
 
+//!!!!!!!!!!!!!!!!!!!!!!Не розумію, як після помилки продовжити виконання коду та видати ще і відсіяні правильні дані.
+//Мій варіант:
+
+
 function showUsers(ids) {
 
     let result = ids.map(showUser);
 
-    console.log(result);
+    try {
+        showUsers();
+    } catch (exception) {
+        console.log(exception.name + ": " + exception.message);
+    }
+
+   return result;
+}
+
+showUsers([7, -12, 44, 22]);
+
+
+
+//Варіант викладача:
+/*
+function showUsers(ids) {
+
+    let result = [];
+    ids.forEach(function (id) {
+        try {
+            let person = showUser(id);
+            result.push(person);
+        } catch (exception) {
+            console.log(exception.message);
+        }
+    });
+
+    return result;
 }
 
 
-try {
-    showUsers([7, -12, 44, 22]);
-} catch (exception) {
-    console.log(exception.name + ": " + exception.message);
-}
-
-*/
+showUsers([7, -12, 44, 22]);*/
