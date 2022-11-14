@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 6 </title>
+</head>
+
+<!--/*1. На HTML-сторінці є елемент div:-->
+<!--<body>
+<div id="test">First</div>
+&lt;!&ndash;Потрібно змінити вміст елемента із First на Last. Доступіться до елемента div хоча б 2 способами.*/&ndash;&gt;
+<script>
+    document.body.children[0].innerHTML = 'Last';
+    document.getElementById('test').innerHTML = 'Last';
+    document.body.firstElementChild.innerHTML  = 'Last';
+    alert(document.body.firstElementChild.innerHTML );
+</script>
+</body>-->
+
+<!--/*2. На сторінці є елемент зображення:-->
+<!--Потрібно змінити зображення dog.jpg на cat.jpg.
+Виведіть в модальному вікні вміст тегу img з новим зображенням.*/-->
+<!--<body>
+<img class="image" src="dog.jpg">
+<script>
+    document.getElementsByClassName('image').src = 'cat.jpg';
+    alert(document.getElementsByClassName("image").src);
+</script>
+</body>-->
+
+<!--3. На вказаній HTML-сторінці необхідно отримати всі елементи всередині тега div по селектору
+(використати метод document.querySelectorAll). І вивести їх вміст із вказанням номеру абзацу в такому форматі:
+Selector text 0: First paragraph
+Selector text 1: Second paragraph
+Selector text 2: Third paragraph-->
+<!--<body>
+<h2>Article header</h2>
+<div id="text">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+</div>
+<p>Another text</p>
+<script>
+    let el = document.getElementById('text');
+    let paragraphs = el.querySelectorAll('p');
+    for (let i = 0; i < paragraphs.length; i++) {
+        console.log('Selector text ' + i + ':' +paragraphs[i].innerText);
+    }
+</script>
+</body>-->
+
+
+<!--4. На HTML-сторінці є ненумерований список з id="list", який складається із 5 елементів. У модальному вікні
+необхідно послідовно вивести вміст:
+1) першого елемента списку
+2) останнього елемента списку
+3) другого елемента списку
+4) четвертого елемента списку
+5) третього елемента списку
+Зробіть завдання 2 різними способами.
+
+Результат виводу: 1, 5, 2, 4, 3-->
+<!--<body>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script>
+// &lt;!&ndash;спосіб 1&ndash;&gt;
+alert(document.getElementById('list').firstElementChild.innerHTML);
+alert(document.getElementById('list').lastElementChild.innerHTML);
+alert(document.getElementById('list').children[1].innerHTML);
+alert(document.getElementById('list').children[3].innerHTML);
+alert(document.getElementById('list').children[2].innerHTML);
+&lt;!&ndash;спосіб 2&ndash;&gt;
+let numberOne = document.getElementById('list').children[0];
+alert(numberOne.innerHTML);
+let numberFive = document.getElementsByTagName('li')[4];
+alert(numberFive.innerHTML);
+alert(numberOne.nextElementSibling.innerHTML);
+alert(numberFive.previousElementSibling.innerHTML);
+// or console.log(document.getElementById('list').lastChild.previousSibling.innerHTML)
+alert(document.querySelectorAll('li')[2].innerHTML);
+</script>
+</body>-->
+
+<!--5. Для сторінки
+Напишіть скріпт, який за допомогою засобів DOM простилізує сторінку так як показано нижче(word doc):-->
+<!--<body>
+<h1>I'am a big header!!!</h1>
+<div id="myDiv">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <p>Third paragraph</p>
+    <p>Fourth paragraph</p>
+</div>
+<ul id="myList">
+    <li>Make</li>
+    <li>me</li>
+    <li>horizontal!</li>
+</ul>
+<span>Make me invisible, please!</span>
+
+<script>
+let h1 = document.body.firstElementChild;
+h1.style.backgroundColor = 'lightgreen';
+let div = document.getElementById('myDiv');
+let p1 = div.firstElementChild;
+p1.style = 'font-weight: bold';
+let p2 = p1.nextElementSibling;
+p2.style.color = 'red';
+let p4 = div.lastElementChild;
+p4.style.fontStyle = 'italic';
+let p3 = p4.previousElementSibling;
+p3.style.textDecoration = 'underline';
+let span = document.querySelector('span');
+span.style.display = 'none';
+let ul = document.getElementById('myList');
+ul.style.listStyle = 'none';
+ul.style.display = 'flex';
+console.log(list);
+</script>
+</body>-->
+
+
+
+
+
+<!--
+6. Задано HTML-сторінку:
+1)Користувач почергово вводить 2 повідомлення (використати prompt()). 1-е повідомлення записується в 1-ий <input>,
+2-ге – в 2-ий.
+2)Поміняти значення 1-го і 2-го інпутів місцями.
+-->
+<!--<body>
+<input type="text" id="input1" value="Text1">
+<input type="text" id="input2" value="Text2">
+
+<script>
+    let firstMessage = prompt('Введіть повідомлення', '');
+    let secondMessage = prompt('Введіть повідомлення', '');
+
+    let input1 = document.getElementById('input1').value;
+   input1 = firstMessage;
+
+    let input2 = document.getElementById('input2').value;
+    input2 = secondMessage;
+    alert(input1);
+    alert(input2);
+
+    input1 = secondMessage;
+    input2 = firstMessage;
+    alert(input1);
+    alert(input2);
+</script>
+</body>-->
+
+<!--7. Напишіть скріпт, який за допомогою засобів DOM створить для порожньої HTML-сторінки таку структуру з тегів і
+їх атрибутів.-->
+<!--<body>
+<script>
+    document.body.innerHTML = `
+<main class="mainClass check item">
+    <div id="myDiv">
+        <p>First paragraph</p>
+    </div>
+</main>`;
+</script>
+</body>-->
+</html>
