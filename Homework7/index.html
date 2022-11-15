@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 7</title>
+</head>
+<body>
+<!--ПИШУ СКРИПТ ТУТ, ЩОБ НЕ ПЛУТАТИСЬ З КУПОЮ ФАЙЛІВ У ДОМАШЦІ-->
+
+<!--1. ????За допомогою методів об’єкта window створити:
+1) нове вікно розміром 300х300 пікселів.
+2) із затримкою 2 сек змініть розміри вікна на 500х500 пікселів
+3) із затримкою 2 сек перемістіть вікно в точку з координатами (200, 200)
+4) із затримкою 2 сек закрийте вікно.-->
+
+<!--<script>
+
+    window.resizeTo('width=500,height=500');
+    window.moveTo(200,200);
+    window.close();
+
+</script>-->
+
+<!--2. Для заданої HTML-сторінки:
+напишіть функцію changeCSS(), яка спрацьовуватиме по кліку на кнопку і змінюватиме стиль вмісту тега <p>: колір шрифту – оранжевий, розмір шрифту 20 пс, шрифт сімейства "Comic Sans MS".-->
+<!--<p id="text">I learning JavaScript events!</p>
+<div>
+    <button id="myButton">Change style!</button>
+</div>
+
+<script>
+    function changeCSS(event) {
+        const paragraph = document.getElementById('text');
+        paragraph.style.color = 'blue';
+        paragraph.style.fontSize = '20px';
+        paragraph.style.fontFamily = 'Comic Sans MS';
+    }
+    let btn = document.getElementById('myButton');
+    btn.addEventListener('click', changeCSS);
+</script>-->
+
+<!--3. Задано сторінку з 3 кнопками і 1 лінкою. Напишіть Javascript код і реалізуйте HTML-сторінку з відповідними
+подіями на кожному елементові:
+    1) 1-ша кнопка – при кліку на неї колір фону сторінки міняється на синій
+    2) 2-га кнопка – при подвійному кліку на неї колір фону сторінки міняється на рожевий
+    3) 3-я кнопка – при натисненні і утримуванні кнопки колір фону сторінки стає коричневий. При відпусканні – білий.
+    4) При наведенні на лінку – колір фону стає жовтим, при відведенні – білим.
+    Приклад – курсор наведений на лінку.-->
+<!--<button id="makeBlue">Click to make the page blue</button>
+<button id="makePink">Click to make the page pink</button>
+<button id="makeBrown">Click and hold to make the page brown</button>
+<a href="#" id="makeYellow">>Hover over to make the page yellow</a>
+<script>
+    function makeBackgroundBlue(event) {
+document.body.style.backgroundColor = 'blue';
+    }
+    let blueBtn = document.getElementById('makeBlue');
+    blueBtn.addEventListener('click', makeBackgroundBlue);
+
+    function makeBackgroundPink(event) {
+        document.body.style.backgroundColor = 'pink';
+    }
+    let pinkBtn = document.getElementById('makePink');
+    pinkBtn.addEventListener('dblclick', makeBackgroundPink);
+
+
+    function changeBackgroundByBtnState(event) {
+        if (event.type == "mousedown") {
+            document.body.style.backgroundColor = 'brown';
+        } else if (event.type == "mouseup"){
+            document.body.style.backgroundColor = 'white';
+        }
+    }
+    let brownBtn = document.getElementById('makeBrown');
+    brownBtn.addEventListener('mousedown' , changeBackgroundByBtnState);
+    brownBtn.addEventListener('mouseup' , changeBackgroundByBtnState);
+
+    function changeBackgroundByLinkState(event) {
+        if (event.type == "mouseover") {
+            document.body.style.backgroundColor = 'yellow';
+        } else if (event.type === "mouseout") {
+            document.body.style.backgroundColor = 'white';
+        }
+    }
+    let yellowLink = document.getElementById('makeYellow');
+    yellowLink.addEventListener('mouseover' , changeBackgroundByLinkState);
+    yellowLink.addEventListener('mouseout' , changeBackgroundByLinkState);
+</script>-->
+
+
+<!--4.?????? Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. Можуть
+ видалятися всі елементи в будь-якому порядку.-->
+
+
+<!--5. Реалізуйте програму, яка по натисканню на кнопку виводитиме повідомлення
+    "I was pressed!", при наведенні на кнопку виводитиме повідомлення "Mouse on me!", а при відведенні курсора миші
+    виводитиме повідомлення "Mouse is not on me!".
+    Приклад роботи:-->
+<!--<button id="myButton">Live button!</button>
+<ul id="myList">
+
+</ul>
+<script>
+    const button = document.getElementById('myButton');
+    const list = document.getElementById('myList');
+    list.style.listStyle = 'none';
+
+    function showMessage(event) {
+        const li = document.createElement('li');
+        list.appendChild(li);
+
+        if (event.type === "click") {
+            li.innerHTML = 'I was pressed!';
+        } else if (event.type === "mouseover") {
+            li.innerHTML = 'Mouse on me!';
+        } else if (event.type === "mouseout") {
+            li.innerHTML = 'Mouse is not on me!';
+        }
+    }
+
+
+    button.addEventListener('click', showMessage);
+    button.addEventListener('mouseover', showMessage);
+    button.addEventListener('mouseout', showMessage);
+</script>-->
+
+<!--6.Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера і
+виводитиме на поточну
+сторінку при її розтязі/стисканні відповідні значення.-->
+<!--<p id="height">Height: <span></span>px</p>
+<p id="width">Width: <span></span>px</p>
+
+<script>
+    const windowHeight = document.querySelector("#height span");
+    const windowWidth = document.querySelector("#width span");
+
+
+    window.onload = function() {
+        windowHeight.innerHTML = window.innerHeight;
+        windowWidth.innerHTML = window.innerWidth;
+    };
+
+    window.onresize = function() {
+        windowHeight.innerHTML = window.innerHeight;
+        windowWidth.innerHTML = window.innerWidth;
+    };
+
+</script>
+-->
+
+
+<!--7*. ?????????????На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому –
+назви міст.
+ Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому
+   списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести
+    назву обраної країни і місто.-->
+<!--    <select name="country" id="country">
+        <option value="ger">Germany</option>
+        <option value="usa">USA</option>
+        <option value="ukr">Ukraine</option>
+    </select>
+
+    <select name="cities" id="cities"></select>
+<p></p>-->
+
+
+</body>
+</html>
