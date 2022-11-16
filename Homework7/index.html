@@ -7,17 +7,27 @@
 <body>
 <!--ПИШУ СКРИПТ ТУТ, ЩОБ НЕ ПЛУТАТИСЬ З КУПОЮ ФАЙЛІВ У ДОМАШЦІ-->
 
-<!--1. ????За допомогою методів об’єкта window створити:
+<!--1.За допомогою методів об’єкта window створити:
 1) нове вікно розміром 300х300 пікселів.
 2) із затримкою 2 сек змініть розміри вікна на 500х500 пікселів
 3) із затримкою 2 сек перемістіть вікно в точку з координатами (200, 200)
 4) із затримкою 2 сек закрийте вікно.-->
 
 <!--<script>
+   myWindow = window.open("", "myOpenedWindow", "width=300,height=300");
 
-    window.resizeTo('width=500,height=500');
-    window.moveTo(200,200);
-    window.close();
+   setTimeout(function (){
+       myWindow.resizeTo(500,500)
+   },2000);
+
+   setTimeout(function (){
+       myWindow.moveTo(200,200)
+   },2000);
+ ;
+
+  setTimeout(function (){
+      myWindow.close()
+  },2000);
 
 </script>-->
 
@@ -88,8 +98,42 @@ document.body.style.backgroundColor = 'blue';
 </script>-->
 
 
-<!--4.?????? Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. Можуть
+<!--4.Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. Можуть
  видалятися всі елементи в будь-якому порядку.-->
+
+<!--<select name="names" id="nameSelect">
+    <option value="peter">Peter</option>
+    <option value="john">John</option>
+    <option value="alise">Alise</option>
+    <option value="alex">Alex</option>
+    <option value="iren">Iren</option>
+</select>
+
+<button id="chooseButton">Choose and Delete</button>
+
+<script>
+    const button = document.getElementById('chooseButton');
+    let select = document.getElementById('nameSelect');
+
+    button.onclick = (e) => {
+        e.preventDefault();
+
+        // save the selected options
+        let selected = [];
+
+        for (let i = 0; i < select.options.length; i++) {
+            selected[i] = select.options[i].selected;
+        }
+
+        // remove all selected option
+        let index = select.options.length;
+        while (index&#45;&#45;) {
+            if (selected[index]) {
+                select.remove(index);
+            }
+        }
+    }
+</script>-->
 
 
 <!--5. Реалізуйте програму, яка по натисканню на кнопку виводитиме повідомлення
@@ -149,20 +193,88 @@ document.body.style.backgroundColor = 'blue';
 -->
 
 
-<!--7*. ?????????????На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому –
-назви міст.
+<!--7*. ????????????? На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у
+другому – назви міст.
  Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому
    списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести
     назву обраної країни і місто.-->
-<!--    <select name="country" id="country">
-        <option value="ger">Germany</option>
-        <option value="usa">USA</option>
-        <option value="ukr">Ukraine</option>
-    </select>
+<!--
+<select name="country" id="country">
+    <option value="ger">Germany</option>
+    <option value="usa">USA</option>
+    <option value="ukr">Ukraine</option>
+</select>
 
-    <select name="cities" id="cities"></select>
-<p></p>-->
+<select name="cities" id="cities"></select>
+<p id="choice"></p>
 
+<script>
+    document.getElementById('cities').style.minWidth = '100px';
+    const countries = {
+        Germany: [Berlin, Hamburg, Munich, Cologne],
+        USA: [New - York, Washington, Boston, Chikago],
+        Ukraine: [Kyiv, Lviv, Rivne, Ternopil],
+    }
 
+    let countriesSelect;
+    let citiesSelect;
+
+    function chooseCityByCountry() {
+
+        country[countriesSelect.value].forEach(function (e) {
+            let el = document.createElement('option');
+            el.value = e;
+            el.textContent = e;
+            citiesSelect.appendChild(el);
+        });
+        citiesSelect.options.selectedIndex = -1;
+        document.getElementById('choice').textContent = '';
+    }
+
+    function showChoice() {
+        if (citiesSelect.options.selectedIndex < 0)
+            return false;
+        document.getElementById('choice').textContent = `${countriesSelect.value}, ${citiesSelect.value}`;
+    }
+
+    window.onload = function () {
+        countriesSelect = document.getElementById('country');
+        countriesSelect.addEventListener('change', chooseCityByCountry);
+
+        citiesSelect = document.getElementById('cities');
+        citiesSelect.addEventListener('change', showChoice);
+
+        for (e in countriesSelect) {
+            let el = document.createElement('option');
+            el.value = e;
+            el.textContent = e;
+            countriesSelect.appendChild(el);
+
+            if (document.getElementById('ger').selected) {
+                e.value = countries.Germany[0];
+            } else if (document.getElementById('usa').selected) {
+                let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
+            } else if (document.getElementById('ukr').selected) {
+                let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
+            }
+        }
+
+        chooseCityByCountry();
+    }
+
+    //my option
+    /*  let listOfCities = document.getElementById('cities');
+  const option = document.createElement('option');
+  listOfCities.appendChild(option);
+  if (document.getElementById('ger').selected) {
+      let cityOfGerman = countries.Germany.map(city => city.item);
+      option.innerHTML = cityOfGerman;
+  } else if (document.getElementById('usa').selected) {
+      let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
+  } else if (document.getElementById('ukr').selected) {
+      let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
+  }*/
+
+</script>-->
 </body>
 </html>
