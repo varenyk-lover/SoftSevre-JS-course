@@ -238,12 +238,12 @@ function deleteColor() {
 -->
 
 
-<!--7*. ????????????? На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у
+<!--7*. На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у
 другому – назви міст.
  Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому
    списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести
     назву обраної країни і місто.-->
-<select name="country" id="country">
+<!--<select name="country" id="country">
     <option value="ger">Germany</option>
     <option value="usa">USA</option>
     <option value="ukr">Ukraine</option>
@@ -252,105 +252,38 @@ function deleteColor() {
 <select name="cities" id="cities" style="min-width: 100px"></select>
 <p></p>
 
-<!--Приклад викладача-->
 <script>
     const cityArr = {
-        'ger': [Berlin, Hamburg, Munich, Cologne],
-        'usa': [New - York, Washington, Boston, Chikago],
-        'ukr': [Kyiv, Lviv, Rivne, Ternopil],
+        'ger': ['Berlin', 'Hamburg', 'Munich', 'Cologne'],
+        'usa': ['New-York', 'Washington', 'Boston', 'Chikago'],
+        'ukr': ['Kyiv', 'Lviv', 'Rivne', 'Ternopil'],
     }
 
-    let prime_select = document.getElementById('country');
-    prime_select.addEventListener('change', createList);
-    prime_select.addEventListener('change', toParagraph);
+    let countrySelect = document.getElementById('country');
+    countrySelect.addEventListener('change', createCityList);
+    countrySelect.addEventListener('change', addToParagraph);
 
-    let city_select = document.getElementById('cities');
-    city_select.addEventListener('change', toParagraph);
+    let citySelect = document.getElementById('cities');
+    citySelect.addEventListener('change', addToParagraph);
 
-    function createList() {
-        city_select.innerHTML = '';
-        let selected_country = prime_select.value;
-        for (let i = 0; i < cityArr[selected_country].length; i++) {
-            let new_option = document.createElement('option');
-            new_option.innerHTML = cityArr[selected_country][i];
-            city_select.appendChild(new_option);
+    function createCityList() {
+        citySelect.innerHTML = '';
+        let selectedCountry = countrySelect.value;
+        for (let i = 0; i < cityArr[selectedCountry].length; i++) {
+            let cityOption = document.createElement('option');
+            cityOption.innerHTML = cityArr[selectedCountry][i];
+            citySelect.appendChild(cityOption);
         }
     }
 
-    let parag = document.querySelector('p');
+    let paragraph = document.querySelector('p');
 
-    function toParagraph() {
-        parag.innerHTML = '';
-        parag.innerHTML = prime_select.options[prime_select.selectedIndex].text + city_select.options[city_select.selectedIndex].text;
+    function addToParagraph() {
+        paragraph.innerHTML = '';
+        paragraph.innerHTML = countrySelect.options[countrySelect.selectedIndex].text +
+            ', ' + citySelect.options[citySelect.selectedIndex].text;
     }
 
-   //Мої спроби
-   /* document.getElementById('cities').style.minWidth = '100px';
-    const countries = {
-        Germany: [Berlin, Hamburg, Munich, Cologne],
-        USA: [New - York, Washington, Boston, Chikago],
-        Ukraine: [Kyiv, Lviv, Rivne, Ternopil],
-    }
-
-    let countriesSelect;
-    let citiesSelect;
-
-    function chooseCityByCountry() {
-
-        country[countriesSelect.value].forEach(function (e) {
-            let el = document.createElement('option');
-            el.value = e;
-            el.textContent = e;
-            citiesSelect.appendChild(el);
-        });
-        citiesSelect.options.selectedIndex = -1;
-        document.getElementById('choice').textContent = '';
-    }
-
-    function showChoice() {
-        if (citiesSelect.options.selectedIndex < 0)
-            return false;
-        document.getElementById('choice').textContent = `${countriesSelect.value}, ${citiesSelect.value}`;
-    }
-
-    window.onload = function () {
-        countriesSelect = document.getElementById('country');
-        countriesSelect.addEventListener('change', chooseCityByCountry);
-
-        citiesSelect = document.getElementById('cities');
-        citiesSelect.addEventListener('change', showChoice);
-
-        for (e in countriesSelect) {
-            let el = document.createElement('option');
-            el.value = e;
-            el.textContent = e;
-            countriesSelect.appendChild(el);
-
-            if (document.getElementById('ger').selected) {
-                e.value = countries.Germany[0];
-            } else if (document.getElementById('usa').selected) {
-                let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
-            } else if (document.getElementById('ukr').selected) {
-                let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
-            }
-        }
-
-        chooseCityByCountry();
-    }*/
-
-    //my option
-    /*  let listOfCities = document.getElementById('cities');
-  const option = document.createElement('option');
-  listOfCities.appendChild(option);
-  if (document.getElementById('ger').selected) {
-      let cityOfGerman = countries.Germany.map(city => city.item);
-      option.innerHTML = cityOfGerman;
-  } else if (document.getElementById('usa').selected) {
-      let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
-  } else if (document.getElementById('ukr').selected) {
-      let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
-  }*/
-
-</script>
+ </script>-->
 </body>
 </html>
