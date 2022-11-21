@@ -5,30 +5,42 @@
     <title>Homework 7</title>
 </head>
 <body>
-<!--ПИШУ СКРИПТ ТУТ, ЩОБ НЕ ПЛУТАТИСЬ З КУПОЮ ФАЙЛІВ У ДОМАШЦІ-->
+
 
 <!--1.За допомогою методів об’єкта window створити:
 1) нове вікно розміром 300х300 пікселів.
 2) із затримкою 2 сек змініть розміри вікна на 500х500 пікселів
 3) із затримкою 2 сек перемістіть вікно в точку з координатами (200, 200)
 4) із затримкою 2 сек закрийте вікно.-->
+<!--
+<script>
+    /* myWindow = window.open("", "myOpenedWindow", "width=300,height=300");
 
-<!--<script>
-   myWindow = window.open("", "myOpenedWindow", "width=300,height=300");
+     setTimeout(function (){
+         myWindow.resizeTo(500,500)
+     },2000);
 
-   setTimeout(function (){
-       myWindow.resizeTo(500,500)
-   },2000);
+     setTimeout(function (){
+         myWindow.moveTo(200,200)
+     },4000);
+   ;
 
-   setTimeout(function (){
-       myWindow.moveTo(200,200)
-   },2000);
- ;
+    setTimeout(function (){
+        myWindow.close()
+    },6000);*/
 
-  setTimeout(function (){
-      myWindow.close()
-  },2000);
+    //  Варіант викладача перепиши
+    myWindow = window.open("", "myOpenedWindow", "width=300,height=300");
+    setTimeout(function () {
 
+        myWindow.resizeTo(500, 500);
+        setTimeout(function () {
+            myWindow.moveTo(200, 200);
+            setTimeout(function () {
+                myWindow.close();
+            }, 2000)
+        }, 2000)
+    }, 2000)
 </script>-->
 
 <!--2. Для заданої HTML-сторінки:
@@ -97,6 +109,19 @@ document.body.style.backgroundColor = 'blue';
     yellowLink.addEventListener('mouseout' , changeBackgroundByLinkState);
 </script>-->
 
+<!--Варіант викладача-->
+<!--<button onclick="setBackground('blue')">Click to make the page blue</button>
+<button ondblclick="setBackground('pink')">Click to make the page pink</button>
+<button onmousedown="setBackground('brown')" onmouseup="setBackground('white')">Click and hold to make the page brown
+    or white</button>
+<a href="#" onmouseover="setBackground('yellow')" onmouseout="setBackground('white')">Hover over to make the page
+    yellow</a>
+
+<script>
+function setBackground(color) {
+    document.body.style.background = color;
+}
+</script>-->
 
 <!--4.Реалізуйте програму, яка по натисканню на кнопку видалятиме обраний елемент випадаючого списку. Можуть
  видалятися всі елементи в будь-якому порядку.-->
@@ -135,6 +160,26 @@ document.body.style.backgroundColor = 'blue';
     }
 </script>-->
 
+<!--Варіант викладача-->
+<!--<form>
+<select name="names" id="nameSet">
+    <option value="peter">Peter</option>
+    <option value="john">John</option>
+    <option value="alise">Alise</option>
+    <option value="alex">Alex</option>
+    <option value="iren">Iren</option>
+</select>
+<input type="button" id="myBtn" value=" Choose and Delete">
+</form>
+
+<script>
+myBtn.addEventListener("click", deleteColor);
+
+function deleteColor() {
+    let x = document.getElementById("nameSet");
+    x.remove(x.selectedIndex);
+}
+</script>-->
 
 <!--5. Реалізуйте програму, яка по натисканню на кнопку виводитиме повідомлення
     "I was pressed!", при наведенні на кнопку виводитиме повідомлення "Mouse on me!", а при відведенні курсора миші
@@ -198,18 +243,49 @@ document.body.style.backgroundColor = 'blue';
  Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому
    списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести
     назву обраної країни і місто.-->
-<!--
 <select name="country" id="country">
     <option value="ger">Germany</option>
     <option value="usa">USA</option>
     <option value="ukr">Ukraine</option>
 </select>
 
-<select name="cities" id="cities"></select>
-<p id="choice"></p>
+<select name="cities" id="cities" style="min-width: 100px"></select>
+<p></p>
 
+<!--Приклад викладача-->
 <script>
-    document.getElementById('cities').style.minWidth = '100px';
+    const cityArr = {
+        'ger': [Berlin, Hamburg, Munich, Cologne],
+        'usa': [New - York, Washington, Boston, Chikago],
+        'ukr': [Kyiv, Lviv, Rivne, Ternopil],
+    }
+
+    let prime_select = document.getElementById('country');
+    prime_select.addEventListener('change', createList);
+    prime_select.addEventListener('change', toParagraph);
+
+    let city_select = document.getElementById('cities');
+    city_select.addEventListener('change', toParagraph);
+
+    function createList() {
+        city_select.innerHTML = '';
+        let selected_country = prime_select.value;
+        for (let i = 0; i < cityArr[selected_country].length; i++) {
+            let new_option = document.createElement('option');
+            new_option.innerHTML = cityArr[selected_country][i];
+            city_select.appendChild(new_option);
+        }
+    }
+
+    let parag = document.querySelector('p');
+
+    function toParagraph() {
+        parag.innerHTML = '';
+        parag.innerHTML = prime_select.options[prime_select.selectedIndex].text + city_select.options[city_select.selectedIndex].text;
+    }
+
+   //Мої спроби
+   /* document.getElementById('cities').style.minWidth = '100px';
     const countries = {
         Germany: [Berlin, Hamburg, Munich, Cologne],
         USA: [New - York, Washington, Boston, Chikago],
@@ -260,7 +336,7 @@ document.body.style.backgroundColor = 'blue';
         }
 
         chooseCityByCountry();
-    }
+    }*/
 
     //my option
     /*  let listOfCities = document.getElementById('cities');
@@ -275,6 +351,6 @@ document.body.style.backgroundColor = 'blue';
       let cities = countries.Germany.map(city => `<option>${city.item}</option>`);
   }*/
 
-</script>-->
+</script>
 </body>
 </html>
