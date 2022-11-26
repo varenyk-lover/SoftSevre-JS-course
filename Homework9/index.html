@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Homewrok 9</title>
+    <script src="../Homework4/index.js"></script>
 </head>
 <body>
 <!--1. На HTML-сторінці є посилання <a>. У випадку коли, href починається на https://, потрібно додати
@@ -32,10 +33,10 @@
 </script>-->
 
 
-<!--2.  ???????????? Для заданої сторінки знайдіть всі <h2> з класом head, зробіть для них зелений колір фону, потім
+<!--2. Для заданої сторінки знайдіть всі <h2> з класом head, зробіть для них зелений колір фону, потім
 серед знайдених елементів знайдіть елементи з класом inner і поставте їм розмір шрифту 35px.
         .	-->
-<h2 class="head">header1</h2>
+<!--<h2 class="head">header1</h2>
 <h2 class="head">header2 <span class="inner">inner elem1</span></h2>
 <h2>header3</h2>
 <h2 class="head">header4 <span class="inner">inner elem2</span></h2>
@@ -43,31 +44,70 @@
 
 <script>
     let headers = document.querySelectorAll('h2.head');
-    for (let header of headers) {
-        header.style.backgroundColor = 'green';
 
+    for (let i = 0; i < headers.length; i++) {
+        headers[i].style.backgroundColor = 'green';
+       if (i > 3) {
+           break;
+
+       }
+        headers[1].firstElementChild.style.fontSize = '35px';
+        headers[2].firstElementChild.style.fontSize = '35px';
     }
 
-         let inners = headers.querySelectorAll('inner');
-           console.log(inners);
+</script>-->
+
+
+
+<!--3. ?????? Знайдіть теги <div>, які стоять безпосередньо після <h3> і перемістіть кожен <div>-елемент так, щоб він став
+безпосередньо над <h3>.-->
+<!--
+<h3>header1</h3>
+<div>text1</div>
+<h3>header2</h3>
+<div>text2</div>
+
+<script>
+  /*  let div1 =  document.querySelector('h3 + div');
+    let header1 =  document.querySelector('h3');
+    let parentHeaders1 = header1.parentNode;
+    parentHeaders1.insertBefore(div1, header1);
+
+
+    console.log(div1);*/
+
+   let divs =  document.querySelectorAll('h3 + div');
+   let headers =  document.querySelectorAll('h3');
+
+
+for (let header of headers) {
+    let parentHeaders = header[i]parentNode;
+    parentHeaders1.insertBefore(div1, header[i]);
+}
+/*   let divArray = Array.from(divs);
+   let headerArray = Array.from(headers);
+   let parentHeadersArray = Array.from(parentHeaders);
+
+   parentHeadersArray[0]parentNode.insertBefore(divArray[0], headerArray[0])*/
 
 </script>
-
-
+-->
 
 <!--
-3. Знайдіть теги <div>, які стоять безпосередньо після <h3> і перемістіть кожен <div>-елемент так, щоб він став безпосередньо над <h3>.
-            <h3>header1</h3>
-            <div>text1</div>
-            <h3>header2</h3>
-            <div>text2</div>
+<div id="parentElement"  style="height:100px; width:100px; background: yellow">
+    <span id="childElement" style="background: greenyellow">foo bar</span>
+</div>
+
+<script>
+
+
+</script>
 -->
 
 
 
-
-
-<!--4. На HTML-сторінці є 6 чекбоксів. Напишіть скріпт, який після того, як користувач позначив будь-які 3 чекбокси, всі чекбокси робить неактивними.-->
+<!--4. ?????? На HTML-сторінці є 6 чекбоксів. Напишіть скріпт, який після того, як користувач позначив будь-які 3
+чекбокси, всі чекбокси робить неактивними.-->
 
 </body>
 </html>
