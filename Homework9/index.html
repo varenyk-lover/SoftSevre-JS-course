@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Homewrok 9</title>
-    <script src="../Homework4/index.js"></script>
+
 </head>
 <body>
 <!--1. На HTML-сторінці є посилання <a>. У випадку коли, href починається на https://, потрібно додати
 посиланню атрибут target="_blank".-->
-<!--<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
+<!--
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
    id="secure">Https
     MDN</a>
 <a href="http://oblenergo.cv.ua/"   id="notSecure">Http Обленерго</a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
-    let links = document.querySelectorAll('a');
+    $(document).ready(function () {
+
+        $('a[href^="https://"]').attr('target', '_blank');
+    });
+
+    // Це я випадково намагалась без jQuery
+/*    let links = document.querySelectorAll('a');
 
 
         for (let i=0; i < links.length; i++) {
@@ -29,85 +38,100 @@
                event.target.setAttribute("target", "_blank");
             }
         });
-}
-</script>-->
+}*/
+</script>
+-->
 
 
 <!--2. Для заданої сторінки знайдіть всі <h2> з класом head, зробіть для них зелений колір фону, потім
-серед знайдених елементів знайдіть елементи з класом inner і поставте їм розмір шрифту 35px.
-        .	-->
+серед знайдених елементів знайдіть елементи з класом inner і поставте їм розмір шрифту 35px.-->
 <!--<h2 class="head">header1</h2>
 <h2 class="head">header2 <span class="inner">inner elem1</span></h2>
 <h2>header3</h2>
 <h2 class="head">header4 <span class="inner">inner elem2</span></h2>
 <h2>header5</h2>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
-    let headers = document.querySelectorAll('h2.head');
+    $(document).ready(function () {
 
-    for (let i = 0; i < headers.length; i++) {
-        headers[i].style.backgroundColor = 'green';
-       if (i > 3) {
-           break;
+        $('h2.head').css('background-color', 'green').find('.inner').css('font-size', '35px');
+    });
 
-       }
-        headers[1].firstElementChild.style.fontSize = '35px';
-        headers[2].firstElementChild.style.fontSize = '35px';
-    }
+
+
+        // Це я намагалась без jQuery
+        /*let headers = document.querySelectorAll('h2.head');
+
+        for (let i = 0; i < headers.length; i++) {
+            headers[i].style.backgroundColor = 'green';
+           if (i > 3) {
+               break;
+
+           }
+            headers[1].firstElementChild.style.fontSize = '35px';
+            headers[2].firstElementChild.style.fontSize = '35px';
+        }*/
 
 </script>-->
 
 
-
-<!--3. ?????? Знайдіть теги <div>, які стоять безпосередньо після <h3> і перемістіть кожен <div>-елемент так, щоб він став
+<!--3. Знайдіть теги <div>, які стоять безпосередньо після <h3> і перемістіть кожен <div>-елемент так, щоб він став
 безпосередньо над <h3>.-->
-<!--
-<h3>header1</h3>
+
+<!--<h3>header1</h3>
 <div>text1</div>
 <h3>header2</h3>
 <div>text2</div>
 
-<script>
-  /*  let div1 =  document.querySelector('h3 + div');
-    let header1 =  document.querySelector('h3');
-    let parentHeaders1 = header1.parentNode;
-    parentHeaders1.insertBefore(div1, header1);
-
-
-    console.log(div1);*/
-
-   let divs =  document.querySelectorAll('h3 + div');
-   let headers =  document.querySelectorAll('h3');
-
-
-for (let header of headers) {
-    let parentHeaders = header[i]parentNode;
-    parentHeaders1.insertBefore(div1, header[i]);
-}
-/*   let divArray = Array.from(divs);
-   let headerArray = Array.from(headers);
-   let parentHeadersArray = Array.from(parentHeaders);
-
-   parentHeadersArray[0]parentNode.insertBefore(divArray[0], headerArray[0])*/
-
-</script>
--->
-
-<!--
-<div id="parentElement"  style="height:100px; width:100px; background: yellow">
-    <span id="childElement" style="background: greenyellow">foo bar</span>
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
+    $(document).ready(function () {
 
+        $('h3 + div').each(function () {
+            const $divs = $(this);
+            console.log( this)
+            $divs.prev().before($divs);
+        });
+    });
+</script>-->
 
-</script>
--->
-
-
-
-<!--4. ?????? На HTML-сторінці є 6 чекбоксів. Напишіть скріпт, який після того, як користувач позначив будь-які 3
+<!--4.  На HTML-сторінці є 6 чекбоксів. Напишіть скріпт, який після того, як користувач позначив будь-які 3
 чекбокси, всі чекбокси робить неактивними.-->
+<!--<h1>Check only 3 desserts</h1>
+<ul style="list-style: none">
+    <li><input type="checkbox">
+        &#127856; Cake</input></li>
+    <li><input type="checkbox">
+        &#127851; Chocolate</input></li>
+    <li><input type="checkbox">
+        &#127850; Cookies</input></li>
+    <li><input type="checkbox">
+        &#127846; Ice-cream</input></li>
+    <li><input type="checkbox">
+        &#127849; Donut</input></li>
+    <li><input type="checkbox">
+        &#127854; Panacotta</input></li>
+</ul>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+
+        const $allcheckboxes = $('input*');
+
+        $allcheckboxes.on('click', function () {
+            if ($('input:checked').length >= 3) {
+                $allcheckboxes.not(":checked").attr("disabled",true);
+            }
+            else
+                $allcheckboxes.not(":checked").removeAttr('disabled');
+        });
+    });
+</script>-->
 </body>
 </html>
