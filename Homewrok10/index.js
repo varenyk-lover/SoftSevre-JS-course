@@ -44,8 +44,7 @@ console.log(mul(null, "str", false, true)); // 0*/
 
 /*4. ????????????? Вихідний код:
     Змініть код використовуючи стрілкові функції, щоб в коді не використовувалися методи bind().*/
-
-/* let server = {
+ let server = {
      data: 0,
      convertToString: function (callback) {
          callback((function () {
@@ -68,14 +67,37 @@ let client = {
 };
 client.calc(123);
 console.log(client.result); // "123"
-console.log(typeof client.result); // "string"*/
+console.log(typeof client.result); // "string"
 
 
-/*5. ????????????? Напишіть функцію mapBuilder (keysArray, valuesArrays), яка приймає два масиви однакової довжини. Використовуючи ці масиви, функція повинна створювати об'єкт типу Map, ключами якого є значення з першого масиву, а значеннями Map - значення з другого масиву. Після цього функція повертає даний об'єкт Map.
+/*5.  Напишіть функцію mapBuilder (keysArray, valuesArrays), яка приймає два масиви однакової довжини. Використовуючи ці масиви, функція повинна створювати об'єкт типу Map, ключами якого є значення з першого масиву, а значеннями Map - значення з другого масиву. Після цього функція повертає даний об'єкт Map.
     Приклади використання функції:*/
 
-/*    let keys = [1, 2, 3, 4];
+/*
+
+ mapBuilder = (keysArray, valuesArrays) => {
+
+    if (keysArray.length === valuesArrays.length) {
+       let myMap = new Map();
+       for (let i = 0; i < keysArray.length; i++) {
+           myMap.set(keysArray[i], valuesArrays[i])
+       };
+       return myMap;
+    } else {
+        console.log('Values are incorrect');
+    }
+}
+
+
+let keys = [1, 2, 3, 4];
 let values = ["div", "span", "b", "i"];
 let map = mapBuilder(keys, values);
+console.log(map);
 console.log(map.size); // 4
-console.log(map.get(2)); // "span"*/
+console.log(map.get(2)); // "span"
+
+
+let testkeys = [1, 2, 3];
+let testvalues = ["div", "span", "b", "i"];
+let testmap = mapBuilder(testkeys, testvalues);
+console.log(testmap);*/
