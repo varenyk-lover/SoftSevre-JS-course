@@ -121,7 +121,7 @@ console.log(typeof client.result); // "string"*/
        // keysArray.map((element, index) => {
        // myMap.set(keysArray[index], valuesArrays[index]);
        // })
-       
+
 
        return myMap;
     } else {
