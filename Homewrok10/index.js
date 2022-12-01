@@ -30,45 +30,79 @@ console.log(age4); // 26*/
 
     let result = args.reduce((acc, currentValue) => {
         if ( typeof currentValue === "number" && !isNaN(currentValue) ) {
-            return acc + currentValue;
+            return acc * currentValue;
         }
         return acc;
-    }, 0);
-    return result;
-}
+    }, );
+    return result ? result : 0;
+}*/
 
-console.log(mul(1, "str", 2, 3, true)); // 6
-console.log(mul(10, "str", '10', 10, true)); // 20
-console.log(mul(null, "str", false, true)); // 0*/
+// Варіант викладача: !!!перевір
+/*function mul(...args) {
+
+    let result = 1;
+    let isNumber;
+    for (let i of args) {
+        if (typeof i == 'number') {
+            result *= i;
+            isNumber = true;
+        }
+    }
+    return isNumber ? result : 0;
+}*/
+
+// console.log(mul(1, "str", 2, 3, true)); // 6
+// console.log(mul(10, "str", '10', 10, true)); //100
+// console.log(mul(null, "str", false, true)); // 0
 
 
-/*4. ????????????? Вихідний код:
+/*4.  Вихідний код:
     Змініть код використовуючи стрілкові функції, щоб в коді не використовувалися методи bind().*/
- let server = {
-     data: 0,
-     convertToString: function (callback) {
-         callback((function () {
-             return this.data + "";
-         }).bind(this));
-     }
- };
+/*let server = {
+    data: 0,
+    convertToString: function (callback) {
+        callback((function () {
+            return this.data + "";
+        }).bind(this));
+    }
+};
 let client = {
- server: server,
- result: "",
- calc: function (data) {
-     this.server.data = data;
-     this.server.convertToString(this.notification());
- },
- notification: function () {
-     return (function (callback) {
-         this.result = callback();
-     }).bind(this);
- }
+    server: server,
+    result: "",
+    calc: function (data) {
+        this.server.data = data;
+        this.server.convertToString(this.notification());
+    },
+    notification: function () {
+        return (function (callback) {
+            this.result = callback();
+        }).bind(this);
+    }
+};*/
+
+/*let server = {
+    data: 0,
+    convertToString: function (callback) {
+        callback(() => `${this.data}`)
+    }
+};
+
+let client = {
+    server: server,
+    result: "",
+    calc: function (data) {
+        this.server.data = data;
+        this.server.convertToString(this.notification());
+    },
+    notification: function () {
+
+        return ((callback) => this.result = callback())
+    },
+
 };
 client.calc(123);
 console.log(client.result); // "123"
-console.log(typeof client.result); // "string"
-
+console.log(typeof client.result); // "string"*/
 
 /*5.  Напишіть функцію mapBuilder (keysArray, valuesArrays), яка приймає два масиви однакової довжини. Використовуючи ці масиви, функція повинна створювати об'єкт типу Map, ключами якого є значення з першого масиву, а значеннями Map - значення з другого масиву. Після цього функція повертає даний об'єкт Map.
     Приклади використання функції:*/
@@ -91,6 +125,7 @@ console.log(typeof client.result); // "string"
 
 let keys = [1, 2, 3, 4];
 let values = ["div", "span", "b", "i"];
+// Тут помилки не буде. Оскільки це і не перезаписування, і нема конфлікту, бо тут інша область видимості. У ф-ї у нас одна змінна, а тут вже інша змінна взагалі. Тож ми навіть можемо їх однаково назвати
 let map = mapBuilder(keys, values);
 console.log(map);
 console.log(map.size); // 4
