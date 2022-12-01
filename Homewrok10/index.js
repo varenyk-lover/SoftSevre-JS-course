@@ -113,9 +113,16 @@ console.log(typeof client.result); // "string"*/
 
     if (keysArray.length === valuesArrays.length) {
        let myMap = new Map();
+
        for (let i = 0; i < keysArray.length; i++) {
            myMap.set(keysArray[i], valuesArrays[i])
        };
+       // Варіант з map:
+       // keysArray.map((element, index) => {
+       // myMap.set(keysArray[index], valuesArrays[index]);
+       // })
+       
+
        return myMap;
     } else {
         console.log('Values are incorrect');
