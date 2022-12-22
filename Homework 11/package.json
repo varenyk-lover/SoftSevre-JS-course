@@ -1,0 +1,11 @@
+{
+  "name": "homework-11",
+  "version": "2.0.0",
+  "description": "practice of node",
+  "main": "test-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hanna",
+  "license": "ISC"
+}
